@@ -6,7 +6,7 @@ export const HeaderProfile = styled.header`
 `;
 
 export const PersonalInformation = styled.div`
-  border: 1px solid #BEC3C6;
+  border: 1px solid #4b5563;
   width: 90%;
   height: auto;
   display: flex;
@@ -15,7 +15,8 @@ export const PersonalInformation = styled.div`
   border-radius: 8px;
   gap: 10px;
   padding: 10px;
-  background-color: #fff;
+  background-color: #1f2937;
+  color: #fff;
   margin-top: 100px;
 `;
 
@@ -28,7 +29,7 @@ export const MainContainer = styled.main`
   align-items: center;
   gap: 10px;
   margin-top: 100px;
-  background-color: #fff;
+  background-color: #161623;
   
 
   .btn-back {

@@ -5,8 +5,9 @@ export const GlobalStyle = createGlobalStyle`
 body{
     margin: 0;
     padding: 0;
-    background-color: #2196F3;
+    background-color: #161623;
     font-family: 'Inter', sans-serif;
+    box-sizing: border-box;
 }
 h2{
     margin: 0;

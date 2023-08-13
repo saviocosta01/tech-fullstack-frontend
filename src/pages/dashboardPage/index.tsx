@@ -7,7 +7,7 @@ import { ModalAddContacts } from "../../components/modalAddContacts";
 import { VscThreeBars } from "react-icons/vsc";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@mui/material";
-import {Avatar} from "@mui/material";
+import { Avatar } from "@mui/material";
 
 export const DashboardPage = () => {
   const { userLogged, Logout, renderMycontacts, setIsModal, isModal } =
@@ -26,55 +26,18 @@ export const DashboardPage = () => {
     <>
       <HeaderSchedule>
         <DivUser>
-        <Avatar src="/broken-image.jpg" variant="circular" style={{backgroundColor: '#000'}}/>
+          <Avatar
+            src="/broken-image.jpg"
+            variant="circular"
+            style={{ backgroundColor: "#000" }}
+          />
           <h3>{userLogged?.full_name}</h3>
         </DivUser>
         <nav className={isNav ? "flex" : "none"}>
-          <Button
-            variant="contained"
-            color="primary"
-            type="submit"
-            size="small"
-            onClick={renderMycontacts}
-          >
-            Meus Contatos
-          </Button>
-          <Button
-            variant="contained"
-            color="primary"
-            type="submit"
-            size="small"
-            onClick={renderAllContacts}
-          >
-            Todos
-          </Button>
-          <Button
-            variant="contained"
-            color="primary"
-            type="submit"
-            size="small"
-            onClick={profilePageTransition}
-          >
-            Meu Perfil
-          </Button>
-          <Button
-            variant="contained"
-            color="primary"
-            type="submit"
-            size="small"
-            onClick={() => setIsModal(true)}
-          >
-            Adicionar Contato
-          </Button>
-          <Button
-            variant="contained"
-            color="primary"
-            type="submit"
-            size="small"
-            onClick={Logout}
-          >
-            Sair
-          </Button>
+          <button onClick={renderMycontacts}>Meus Contatos</button>
+          <button onClick={renderAllContacts}>Todos</button>
+          <button onClick={profilePageTransition}>Meu Perfil</button>
+          <button onClick={Logout}>Sair</button>
         </nav>
 
         <VscThreeBars
@@ -83,6 +46,16 @@ export const DashboardPage = () => {
         />
       </HeaderSchedule>
       <MainContainer>
+        <Button
+          variant="contained"
+          color="success"
+          type="submit"
+          size="small"
+          onClick={() => setIsModal(true)}
+          className="btn-create-contact"
+        >
+          Adicionar Contato
+        </Button>
         <ListContacts />
         {isModal && <ModalAddContacts />}
       </MainContainer>

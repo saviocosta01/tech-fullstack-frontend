@@ -3,12 +3,12 @@ import styled from "styled-components";
 export const ModalContainer = styled.div`
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.2);
   position: fixed;
   overflow-x: hidden;
   top: 0;
   right: 0;
-
+  z-index: 3;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -16,13 +16,13 @@ export const ModalContainer = styled.div`
 
 export const Modal = styled.div`
   width: 80%;
-  height: 60%;
-  background-color: #fff;
+  height: 50%;
+  background-color: #f3f4f6;
   display: flex;
   flex-direction: column;
   align-items: center;
   font-family: "Inter", sans-serif;
-  border-radius: 4px;
+  border-radius: 15px;
   position: relative;
   padding: 10px;
   justify-content: center;

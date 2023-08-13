@@ -4,17 +4,17 @@ export const CapaStyle = styled.div`
   .image-box {
     display: inline-flex;
     position: relative;
-    /* button {
-      position: absolute;
-      bottom: 30px;
-      right: 30px;
-      background-color: transparent;
-    } */
   }
   .color-capa {
-    background-color: #2196F3;
+    background-color: #fff;
     width: 100%;
     height: 25vh;
+
+    img {
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+    }
   }
   .foto-perfil {
     margin: 1rem;

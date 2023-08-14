@@ -7,13 +7,10 @@ import { ModalUpdateContact } from "../modalUpdateContacts";
 import {MdDelete} from "react-icons/md"
 
 interface TiltCardProps {
-    title: string;
-    content: string;
     contact: TContacts;
   }
 
-export const Card: React.FC<TiltCardProps> = ({ title, content, contact }) => {
-  const cardRef = useRef<HTMLDivElement | null>(null);
+export const Card: React.FC<TiltCardProps> = ({contact}) => {
   const {
     setModalContacts,
     deleteContactResponse,
@@ -26,22 +23,21 @@ export const Card: React.FC<TiltCardProps> = ({ title, content, contact }) => {
     setContactId(id);
   };
 
+  const boxRef = useRef<HTMLLIElement | null>(null);
+
   useEffect(() => {
-    if (cardRef.current) {
-      VanillaTilt.init(cardRef.current, {
+    if (boxRef.current) {
+      VanillaTilt.init(boxRef.current, {
         max: 15,
         speed: 400,
         glare: true,
-        "max-glare": 0.5,
+        'max-glare': 0.5,
       });
-
-      return () => cardRef.current?.vanillaTilt.destroy();
     }
   }, []);
-
   return (
     <>
-    <CardStyle ref={cardRef} className="tilt-card">
+    <CardStyle ref={boxRef}>
       <DivContent>
         <div>
           <h4>Nome:</h4>

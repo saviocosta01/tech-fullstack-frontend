@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useState } from "react";
 import { IChildren, TUpdateCustomer } from "./interfaces/customer.interface";
 import {
   TContacts,
@@ -9,7 +9,13 @@ import { api } from "../services/api";
 import { CustomerContext } from "./CustomerContext";
 import { toast } from "react-toastify";
 
-
+interface ErroComResposta {
+  response: {
+    data: {
+      message: string;
+    };
+  };
+}
 
 export function isErroComResposta(error: any): error is ErroComResposta {
   return (
@@ -18,13 +24,6 @@ export function isErroComResposta(error: any): error is ErroComResposta {
     error.response.data &&
     error.response.data.message
   );
-}
-export interface ErroComResposta {
-  response: {
-    data: {
-      message: string;
-    };
-  };
 }
 
 export const ContactContext = createContext<TContextContact>(
@@ -77,11 +76,12 @@ export const ContactProvider = ({ children }: IChildren) => {
 
   const deleteContactResponse = async (id: number) => {
     try {
-      const response = await api.delete(`/contacts/${id}`, {
+      await api.delete(`/contacts/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       });
+
       const newContactList = contacts.filter((contact) => contact.id !== id);
       toast.success("Contato deletado");
       setContacts(newContactList);

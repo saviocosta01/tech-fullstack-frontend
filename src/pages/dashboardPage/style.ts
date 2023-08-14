@@ -7,7 +7,7 @@ export const HeaderSchedule = styled.header`
   justify-content: space-between;
   align-items: center;
   background-color: #161623;
-  color: #fff;
+  color: #f3f4f6;
   overflow-x: hidden;
 
   .btn-configuration {

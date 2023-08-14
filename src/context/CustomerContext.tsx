@@ -58,12 +58,12 @@ export const CustomerProvider = ({ children }: IChildren) => {
 
   const RegisterCustomer = async (data: TRegister) => {
     try {
-      const response = await api.post("/customers", data);
+      await api.post("/customers", data);
       navigate("/");
       toast.success("conta crianda com sucesso");
     } catch (error) {
       if(isErroComResposta(error)) {
-        toast.error(String(error.response.data.message));
+        toast.error(error.response.data.message);
       }
     }
   };
@@ -129,7 +129,7 @@ export const CustomerProvider = ({ children }: IChildren) => {
 
   const DeleteAccount = async () => {
     try {
-      const response = await api.delete("/customers", {
+      await api.delete("/customers", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
